@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vértice — Onde o talento encontra a gestão</title>
+<meta name="description" content="Vértice conecta empreendedores informais que sabem fazer com parceiros estratégicos que sabem gerir — num ambiente acessível, seguro e que educa antes de conectar."/>
+<meta property="og:title" content="Vértice — Onde o talento encontra a gestão"/>
+<meta property="og:description" content="Plataforma que conecta empreendedores informais com parceiros estratégicos. Capacitação, segurança e conexão num só lugar."/>
+<meta property="og:image" content="Logo1.2-PNG.png"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href="Logo1.2-PNG.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#05030F;
+  --bg2:#08051A;
+  --bg3:#100828;
+  --bg4:#180E38;
+  --purple:#8B30CC;
+  --magenta:#C83490;
+  --pink:#F05478;
+  --navy:#1E3C8F;
+  --blue:#4A80E8;
+  --grad:linear-gradient(135deg,#8B30CC 0%,#C83490 52%,#F05478 100%);
+  --grad-r:linear-gradient(315deg,#8B30CC 0%,#C83490 52%,#F05478 100%);
+  --grad-blue:linear-gradient(135deg,#1E3C8F 0%,#4A80E8 60%,#8B30CC 100%);
+  --text:#EDE8F8;
+  --text-dim:#7A6E9A;
+  --text-mid:#B8AECE;
+  --line:rgba(139,48,204,.15);
+  --line2:rgba(237,232,248,.06);
+  --line3:rgba(237,232,248,.035);
+  --glow-p:rgba(139,48,204,.2);
+  --glow-pk:rgba(240,84,120,.18);
+  --glow-b:rgba(74,128,232,.15);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px;
+}
+
+section,nav,footer{position:relative;z-index:1}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--purple),var(--pink));border-radius:2px}
+
+/* ── SCROLL PROGRESS ── */
+#scroll-progress{
+  position:fixed;top:0;left:0;z-index:200;
+  height:2px;width:0%;
+  background:var(--grad);
+  transition:width .08s linear;
+  box-shadow:0 0 12px rgba(200,52,144,.6);
+}
+
+/* ── CURSOR GLOW ── */
+#cursor-glow{
+  position:fixed;z-index:0;pointer-events:none;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:left .18s ease,top .18s ease,opacity .4s;
+  opacity:0;
+  /* enhanced volumetric size */
+  width:560px;height:560px;
+  background:radial-gradient(circle,
+    rgba(139,48,204,.07)  0%,
+    rgba(200,52,144,.045) 28%,
+    rgba(240,84,120,.02)  52%,
+    transparent 70%
+  );
+}
+
+/* ── MAGNETIC BTN ── */
+.btn-grad,.btn-ghost,.nav-cta{will-change:transform}
+
+/* ── PILAR TILT ── */
+.pilar{transform-style:preserve-3d}
+
+/* ── FLOATING ORBS ── */
+@keyframes orb-drift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%     {transform:translate(18px,-14px) scale(1.04)}
+  66%     {transform:translate(-12px,10px) scale(.97)}
+}
+.drift-orb{
+  position:absolute;border-radius:50%;pointer-events:none;
+  animation:orb-drift linear infinite;
+}
+
+/* ── SHIMMER ON GRADIENT TEXT ── */
+@keyframes shimmer-slide{
+  0%  {background-position:200% center}
+  100%{background-position:-200% center}
+}
+.hero-title .accent{
+  background:linear-gradient(90deg,#8B30CC,#C83490,#F05478,#C83490,#8B30CC);
+  background-size:300% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer-slide 5s linear infinite;
+}
+
+/* ── COUNTER ── */
+.hstat-num{transition:opacity .3s}
+
+/* ── SOCIAL LINKS IN FOOTER ── */
+.footer-social{display:flex;gap:1rem;align-items:center}
+.footer-social a{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:8px;
+  border:1px solid var(--line2);
+  color:var(--text-dim);text-decoration:none;
+  font-size:.9rem;
+  transition:border-color .2s,color .2s,background .2s,box-shadow .2s;
+}
+.footer-social a:hover{
+  border-color:rgba(200,52,144,.4);color:var(--text);
+  background:rgba(200,52,144,.07);
+  box-shadow:0 0 18px rgba(200,52,144,.2);
+}
+.footer-contact{
+  display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;
+}
+.footer-contact-row{
+  display:flex;align-items:center;gap:.5rem;
+}
+
+.g-text{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.g-text-blue{
+  background:var(--grad-blue);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 4rem;
+  background:rgba(5,3,15,.75);
+  backdrop-filter:blur(28px) saturate(1.5);
+  border-bottom:1px solid var(--line3);
+  transition:padding .3s,background .3s;
+}
+nav.scrolled{padding:.75rem 4rem;background:rgba(5,3,15,.92)}
+
+.nav-brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;z-index:101}
+.nav-logo-img{height:34px;width:auto;filter:drop-shadow(0 0 10px rgba(200,52,144,.4))}
+.nav-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:600;color:var(--text);letter-spacing:.06em;
+}
+
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-dim);text-decoration:none;font-weight:400;
+  position:relative;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{
+  content:'';
+  position:absolute;bottom:-.35rem;left:0;right:0;
+  height:1px;
+  background:var(--grad);
+}
+
+.nav-right{display:flex;align-items:center;gap:1.2rem;z-index:101}
+
+.nav-cta{
+  font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--grad);color:#fff;
+  padding:.5rem 1.5rem;border-radius:100px;text-decoration:none;
+  transition:box-shadow .25s,transform .15s,opacity .2s;
+  box-shadow:0 0 0 0 var(--glow-pk);
+}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 8px 30px var(--glow-pk)}
+
+/* ── HAMBURGER ── */
+.nav-hamburger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  background:none;border:none;cursor:pointer;
+  padding:.4rem;z-index:101;
+}
+.nav-hamburger span{
+  display:block;width:22px;height:1.5px;
+  background:var(--text-dim);border-radius:1px;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .2s,background .2s;
+}
+.nav-hamburger:hover span{background:var(--text)}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--text)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--text)}
+
+/* GLOBAL PARTICLE CANVAS */
+#hero-canvas{
+  position:fixed;
+  top:0;left:0;
+  z-index:0;
+  width:100vw;height:100vh;
+  pointer-events:none;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:8rem 2rem 5rem;
+  position:relative;overflow:hidden;
+}
+
+.hero-logo-wrap{
+  position:relative;margin-bottom:2.5rem;
+  opacity:0;animation:fade-up .9s .2s forwards;
+}
+.hero-logo{
+  width:110px;height:auto;
+  filter:drop-shadow(0 0 28px rgba(200,52,144,.55))
+         drop-shadow(0 0 60px rgba(139,48,204,.3));
+  animation:logo-breathe 4s ease-in-out infinite;
+}
+@keyframes logo-breathe{
+  0%,100%{filter:drop-shadow(0 0 28px rgba(200,52,144,.55)) drop-shadow(0 0 60px rgba(139,48,204,.3))}
+  50%     {filter:drop-shadow(0 0 40px rgba(200,52,144,.8))  drop-shadow(0 0 80px rgba(139,48,204,.5))}
+}
+
+.hero-chip{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);
+  border:1px solid var(--line2);padding:.38rem 1rem;border-radius:100px;
+  margin-bottom:1.8rem;
+  opacity:0;animation:fade-up .8s .38s forwards;
+}
+.hero-chip::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--grad);display:block;
+}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7.5vw,6.8rem);
+  font-weight:300;line-height:1.05;letter-spacing:-.01em;
+  max-width:18ch;
+  opacity:0;animation:fade-up .95s .5s forwards;
+}
+.hero-title strong{font-weight:700;display:block}
+.hero-title .accent{
+  font-style:italic;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub{
+  margin-top:1.8rem;font-size:1.05rem;line-height:1.85;
+  color:var(--text-mid);max-width:52ch;
+  opacity:0;animation:fade-up .9s .66s forwards;
+}
+
+.hero-actions{
+  margin-top:2.8rem;
+  display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;justify-content:center;
+  opacity:0;animation:fade-up .85s .8s forwards;
+}
+.btn-grad{
+  background:var(--grad);color:#fff;
+  padding:.88rem 2.4rem;border-radius:100px;
+  text-decoration:none;font-size:.9rem;font-weight:500;
+  transition:box-shadow .25s,transform .15s,opacity .2s;
+}
+.btn-grad:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 14px 40px var(--glow-pk)}
+.btn-ghost{
+  color:var(--text-mid);font-size:.9rem;text-decoration:none;
+  padding:.88rem 2rem;border:1px solid var(--line2);border-radius:100px;
+  transition:border-color .2s,color .2s;
+}
+.btn-ghost:hover{border-color:rgba(139,48,204,.35);color:var(--text)}
+
+/* STAT BAR */
+.hero-stats{
+  margin-top:5rem;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  max-width:800px;width:100%;
+  border:1px solid var(--line2);border-radius:16px;overflow:hidden;
+  opacity:0;animation:fade-up .85s .96s forwards;
+  background:rgba(16,8,40,.6);backdrop-filter:blur(14px);
+}
+.hstat{
+  padding:1.8rem 1.6rem;text-align:center;
+  border-right:1px solid var(--line2);
+}
+.hstat:last-child{border-right:none}
+.hstat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.6rem;font-weight:700;line-height:1;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hstat-label{
+  font-size:.74rem;color:var(--text-dim);margin-top:.35rem;line-height:1.4;
+}
+
+.stats-source{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;color:var(--text-dim);letter-spacing:.1em;
+  opacity:0;animation:fade-up .7s 1.12s forwards;
+  margin-top:.9rem;opacity:.4;
+}
+
+/* SCROLL HINT */
+.scroll-hint{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;animation:fade-up .6s 1.3s forwards;
+  transition:opacity .5s;
+}
+.scroll-hint.hidden{opacity:0!important;pointer-events:none}
+.scroll-hint span{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
+.scroll-arrow{
+  width:20px;height:30px;border:1px solid rgba(237,232,248,.15);border-radius:10px;
+  display:flex;align-items:flex-start;justify-content:center;padding-top:5px;
+}
+.scroll-arrow::before{
+  content:'';width:3px;height:7px;background:var(--grad);border-radius:2px;
+  animation:scroll-bounce 2s ease-in-out infinite;
+}
+@keyframes scroll-bounce{
+  0%,100%{transform:translateY(0);opacity:1}
+  60%    {transform:translateY(8px);opacity:.4}
+}
+
+/* DIVIDER */
+.div-line{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--purple) 25%,var(--pink) 75%,transparent);
+  opacity:.18;
+}
+
+/* ── MARQUEE STRIP ── */
+.marquee-strip{
+  overflow:hidden;
+  border-top:1px solid var(--line3);
+  border-bottom:1px solid var(--line3);
+  background:rgba(8,5,26,.5);
+  padding:.75rem 0;
+  position:relative;z-index:1;
+}
+.marquee-strip::before,
+.marquee-strip::after{
+  content:'';
+  position:absolute;top:0;bottom:0;
+  width:100px;z-index:2;pointer-events:none;
+}
+.marquee-strip::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.marquee-strip::after {right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+
+@keyframes marquee-scroll{
+  0%  {transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.marquee-track{
+  display:inline-flex;gap:2.2rem;align-items:center;
+  white-space:nowrap;
+  animation:marquee-scroll 22s linear infinite;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);
+}
+.marquee-dot{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  font-size:.45rem;
+}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* SECTION */
+.section{padding:8rem 4rem;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+
+.chip{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-dim);margin-bottom:1.4rem;
+}
+.chip::before{content:'';width:18px;height:1px;background:var(--grad)}
+
+.stitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:600;line-height:1.12;letter-spacing:-.01em;
+}
+
+/* ── PROBLEMA ── */
+.problema{
+  background:rgba(8,5,26,.72);
+  backdrop-filter:blur(3px) saturate(1.06);
+  border-top:1px solid var(--line3);
+  border-bottom:1px solid var(--line3)
+}
+
+.prob-layout{
+  display:grid;grid-template-columns:1fr 1.6fr;
+  gap:7rem;align-items:start;
+}
+.prob-quote{
+  margin-top:2.5rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-style:italic;font-weight:300;
+  color:var(--text-mid);line-height:1.8;
+  padding-left:1.6rem;
+  border-left:2px solid;
+  border-image:var(--grad) 1;
+}
+.barriers{margin-top:0;display:flex;flex-direction:column;gap:.75rem}
+.barrier{
+  display:grid;grid-template-columns:2.8rem 1fr;
+  gap:1rem;align-items:start;
+  padding:1.6rem 1.8rem;
+  background:var(--bg3);
+  border:1px solid var(--line3);border-radius:10px;
+  transform-style:preserve-3d;
+  transition:border-color .3s,transform .4s;cursor:default;
+}
+.barrier:hover{border-color:var(--line);transform:translateX(5px)}
+.barrier-n{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;color:var(--text-dim);letter-spacing:.1em;padding-top:.2rem;
+}
+.barrier-title{font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:.3rem}
+.barrier-body{font-size:.85rem;color:var(--text-dim);line-height:1.7}
+
+/* ── OBJETIVO ── */
+.objetivo{background:rgba(5,3,15,.56);backdrop-filter:blur(2px) saturate(1.04);overflow:hidden}
+
+.obj-bg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 60% at 10% 50%,rgba(30,60,143,.12),transparent),
+    radial-gradient(ellipse 40% 50% at 90% 40%,rgba(139,48,204,.1),transparent);
+  will-change:transform;
+}
+
+.obj-inner{position:relative;z-index:1}
+
+.obj-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:7rem;align-items:center;
+}
+
+.obj-manifesto{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:300;line-height:1.55;
+  color:var(--text-mid);
+}
+.obj-manifesto strong{
+  font-weight:600;color:var(--text);display:block;
+}
+
+.obj-pillars-mini{display:flex;flex-direction:column;gap:1.2rem;margin-top:3rem}
+
+.obj-pill{
+  display:flex;align-items:flex-start;gap:1.2rem;
+  padding:1.4rem 1.6rem;
+  background:rgba(16,8,40,.7);
+  border:1px solid var(--line3);border-radius:10px;
+  transform-style:preserve-3d;
+  transition:border-color .3s,background .3s;
+}
+.obj-pill:hover{border-color:var(--line);background:rgba(24,14,56,.8)}
+
+.obj-pill-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  font-size:0;flex-shrink:0;
+}
+.obj-pill-title{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.25rem}
+.obj-pill-body{font-size:.82rem;color:var(--text-dim);line-height:1.6}
+
+/* ── COMO FUNCIONA ── */
+.como{background:rgba(8,5,26,.66);backdrop-filter:blur(2px) saturate(1.04);border-top:1px solid var(--line3)}
+
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:4.5rem;position:relative;
+}
+.steps::before{
+  content:'';
+  position:absolute;top:27px;left:6%;right:6%;height:1px;
+  background:var(--grad);opacity:.2;z-index:0;
+}
+.step{padding:0 1.5rem 2rem;text-align:center;position:relative;z-index:1}
+.step-dot{
+  width:54px;height:54px;border-radius:50%;
+  margin:0 auto 1.8rem;
+  background:var(--bg3);border:1px solid var(--line2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text-dim);
+  position:relative;z-index:1;
+  transition:background .3s,box-shadow .3s,color .3s,border-color .3s,
+             transform .25s cubic-bezier(.34,1.56,.64,1);
+}
+.step:hover .step-dot{
+  background:var(--grad);color:#fff;
+  border-color:transparent;
+  box-shadow:0 0 32px var(--glow-pk);
+  transform:scale(1.12);
+}
+.step-title{font-size:.93rem;font-weight:500;margin-bottom:.5rem;color:var(--text)}
+.step-body{font-size:.82rem;color:var(--text-dim);line-height:1.7}
+
+/* ── PILARES ── */
+.pilares{background:rgba(5,3,15,.54);backdrop-filter:blur(2px) saturate(1.03);border-top:1px solid var(--line3)}
+
+.pilares-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-top:4rem;
+}
+.pilar{
+  padding:2.8rem 2.4rem;
+  background:var(--bg3);
+  border:1px solid var(--line3);border-radius:14px;
+  position:relative;overflow:hidden;
+  transition:border-color .35s,transform .35s,box-shadow .35s;
+}
+.pilar:hover{border-color:var(--line);transform:translateY(-5px);box-shadow:0 24px 60px rgba(5,3,15,.7)}
+.pilar::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--grad);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.pilar:hover::after{transform:scaleX(1)}
+.pilar-glow{
+  position:absolute;width:220px;height:220px;border-radius:50%;
+  top:-80px;right:-70px;
+  background:radial-gradient(circle,var(--glow-p),transparent 65%);
+  pointer-events:none;opacity:0;transition:opacity .4s;
+}
+.pilar:hover .pilar-glow{opacity:1}
+.pilar-ico{
+  width:46px;height:46px;border-radius:10px;
+  background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0;margin-bottom:1.8rem;
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),
+             box-shadow .28s cubic-bezier(.34,1.56,.64,1);
+}
+.pilar:hover .pilar-ico{
+  transform:translateY(-4px) rotate(10deg) scale(1.1);
+  box-shadow:0 10px 24px rgba(200,52,144,.35);
+}
+.pilar-idx{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.64rem;letter-spacing:.2em;color:var(--text-dim);
+  display:block;margin-bottom:.7rem;
+}
+.pilar-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:600;margin-bottom:1rem;line-height:1.2;
+}
+.pilar-body{font-size:.87rem;color:var(--text-dim);line-height:1.75}
+.pilar-list{margin-top:1.5rem;list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.pilar-list li{
+  font-size:.81rem;color:var(--text-dim);
+  display:flex;gap:.7rem;align-items:flex-start;line-height:1.5;
+}
+.pilar-list li::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--grad);flex-shrink:0;margin-top:.48rem;display:block;
+}
+
+/* ── PROTOCOLO VIOLETA ── */
+.violeta{background:rgba(8,5,26,.64);backdrop-filter:blur(2px) saturate(1.04);border-top:1px solid var(--line3)}
+
+.violeta-card{
+  background:linear-gradient(135deg,rgba(139,48,204,.06),rgba(200,52,144,.05),rgba(240,84,120,.04));
+  border:1px solid rgba(139,48,204,.22);border-radius:20px;
+  padding:4.5rem 4rem;position:relative;overflow:hidden;
+}
+.violeta-orb1{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,52,144,.1),transparent 60%);
+  right:-150px;top:50%;transform:translateY(-50%);pointer-events:none;
+  will-change:transform;
+}
+.violeta-orb2{
+  position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,48,204,.08),transparent 60%);
+  left:-80px;bottom:-100px;pointer-events:none;
+  will-change:transform;
+}
+
+.violeta-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
+
+.v-tag{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#E060B8;margin-bottom:1.4rem;
+}
+.v-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:linear-gradient(#C83490,#F05478)}
+
+.violeta-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3vw,2.7rem);font-weight:600;
+  line-height:1.2;margin-bottom:1.4rem;
+}
+.violeta-body{font-size:.95rem;color:var(--text-mid);line-height:1.85;margin-bottom:2rem}
+
+.v-insight{
+  padding:1.2rem 1.6rem;
+  border:1px solid rgba(200,52,144,.2);border-radius:8px;
+  background:rgba(200,52,144,.04);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-style:italic;color:var(--text-mid);line-height:1.7;
+}
+.v-insight strong{
+  background:linear-gradient(110deg,#C83490,#F05478);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-weight:600;
+}
+
+.v-phases{display:flex;flex-direction:column;gap:.75rem}
+.vp{
+  display:grid;grid-template-columns:2.6rem 1fr;
+  gap:1rem;padding:1.2rem 1.4rem;
+  background:rgba(16,8,40,.85);
+  border:1px solid var(--line3);border-radius:8px;
+  transition:border-color .3s;
+}
+.vp:hover{border-color:rgba(200,52,144,.25)}
+.vp-v{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;color:#E060B8;letter-spacing:.06em;padding-top:.15rem;
+}
+.vp-title{font-size:.87rem;font-weight:500;color:var(--text);margin-bottom:.2rem}
+.vp-body{font-size:.79rem;color:var(--text-dim);line-height:1.55}
+
+/* ── PARA QUEM ── */
+.paraquem{background:rgba(5,3,15,.55);backdrop-filter:blur(2px) saturate(1.03);border-top:1px solid var(--line3)}
+
+.pq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.pq-card{
+  padding:2.5rem 2.2rem;
+  background:var(--bg3);
+  border:1px solid var(--line3);border-radius:14px;
+  transform-style:preserve-3d;
+  transition:border-color .3s,transform .35s;
+}
+.pq-card:hover{border-color:var(--line);transform:translateY(-4px)}
+.pq-ico{
+  width:52px;height:52px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0;margin-bottom:1.5rem;
+  background:var(--bg4);border:1px solid var(--line2);
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),
+             box-shadow .28s cubic-bezier(.34,1.56,.64,1);
+}
+.pq-card:hover .pq-ico{
+  transform:translateY(-4px) rotate(-8deg) scale(1.1);
+  box-shadow:0 10px 24px rgba(139,48,204,.35);
+}
+.pq-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-weight:600;margin-bottom:.6rem;
+}
+.pq-body{font-size:.86rem;color:var(--text-dim);line-height:1.72}
+.pq-pill{
+  display:inline-block;margin-top:1.2rem;
+  padding:.26rem .85rem;border-radius:100px;
+  border:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ── MODELO ── */
+.modelo{background:rgba(8,5,26,.64);backdrop-filter:blur(2px) saturate(1.04);border-top:1px solid var(--line3)}
+
+.modelo-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:4rem}
+.mbox{
+  padding:2.4rem;background:var(--bg3);
+  border:1px solid var(--line3);border-radius:14px;
+  transform-style:preserve-3d;
+  transition:border-color .3s;
+}
+.mbox:hover{border-color:var(--line)}
+.mbox-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-dim);margin-bottom:1.5rem;
+  padding-bottom:1rem;border-bottom:1px solid var(--line3);
+}
+.frow{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.85rem 1rem;border-radius:6px;margin-bottom:.45rem;
+  background:var(--bg4);transition:background .2s;
+}
+.frow:hover{background:rgba(24,14,56,.9)}
+.frow-label{font-size:.86rem;color:var(--text-mid)}
+.frow-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-dim);letter-spacing:.06em}
+.mbox-note{
+  margin-top:1.4rem;padding:1.2rem 1.4rem;
+  border-radius:8px;
+  background:linear-gradient(135deg,rgba(74,128,232,.06),rgba(139,48,204,.05));
+  border:1px solid rgba(74,128,232,.15);
+  font-size:.83rem;color:var(--text-dim);line-height:1.7;
+}
+
+.dtable{width:100%;border-collapse:collapse}
+.dtable th{
+  text-align:left;padding:.7rem 1rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.64rem;letter-spacing:.14em;font-weight:400;
+  color:var(--text-dim);border-bottom:1px solid var(--line3);
+}
+.dtable td{
+  padding:.82rem 1rem;font-size:.83rem;color:var(--text-dim);
+  border-bottom:1px solid var(--line3);vertical-align:top;
+}
+.dtable tr:last-child td{border-bottom:none}
+.dtable .yes{
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-weight:500;
+}
+.dtable .no{color:rgba(122,110,154,.3)}
+
+/* ── IMPACTO ── */
+.impacto{background:rgba(5,3,15,.56);backdrop-filter:blur(2px) saturate(1.03);border-top:1px solid var(--line3)}
+
+.ods-row{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;margin-top:3.5rem;
+  border:1px solid var(--line3);border-radius:12px;overflow:hidden;
+}
+.ods-c{
+  padding:2rem 1.2rem;text-align:center;
+  background:var(--bg3);transition:background .3s;
+}
+.ods-c:hover{background:var(--bg4)}
+.ods-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:700;line-height:1;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.4rem;
+}
+.ods-l{font-size:.71rem;color:var(--text-dim);line-height:1.4}
+.ods-d{font-size:.66rem;color:var(--text-dim);opacity:.45;margin-top:.5rem;line-height:1.4}
+
+/* ── VISÃO / CTA ── */
+.visao{
+  background:rgba(5,3,15,.62);
+  backdrop-filter:blur(3px) saturate(1.06);
+  text-align:center;padding:10rem 4rem;overflow:hidden;
+}
+.visao-glow{
+  position:absolute;width:800px;height:800px;border-radius:50%;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(139,48,204,.07) 0%,rgba(200,52,144,.05) 40%,transparent 70%);
+  pointer-events:none;will-change:transform;
+  animation:orb-drift 12s ease-in-out infinite;
+}
+.visao-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5.5vw,5rem);
+  font-weight:300;line-height:1.15;
+  max-width:22ch;margin:0 auto;
+}
+.visao-title em{
+  font-style:italic;font-weight:700;display:block;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.visao-body{
+  margin:2.5rem auto 0;font-size:1.05rem;
+  color:var(--text-dim);max-width:54ch;line-height:1.9;
+}
+.visao-actions{margin-top:3.5rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{
+  background:rgba(5,3,15,.72);
+  backdrop-filter:blur(6px) saturate(1.08);
+  padding:2.5rem 4rem;
+  border-top:1px solid var(--line3);
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;gap:2rem;
+}
+.footer-brand{display:flex;align-items:center;gap:.6rem}
+.footer-logo-img{height:26px;filter:drop-shadow(0 0 6px rgba(200,52,144,.35))}
+.footer-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:600;color:var(--text);
+}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{
+  font-size:.73rem;color:var(--text-dim);
+  text-decoration:none;letter-spacing:.08em;transition:color .2s;
+}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{
+  font-size:.7rem;color:var(--text-dim);
+  font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-align:right;
+}
+
+/* REVEAL — single merged definition */
+@keyframes fade-up{
+  from{opacity:0;transform:translateY(28px)}
+  to  {opacity:1;transform:translateY(0)}
+}
+.r{
+  opacity:0;
+  transform:translateY(24px);
+  filter:blur(5px);
+  transition:
+    opacity .75s cubic-bezier(.16,1,.3,1),
+    transform .75s cubic-bezier(.16,1,.3,1),
+    filter .65s cubic-bezier(.16,1,.3,1);
+}
+.r.in{opacity:1;transform:none;filter:blur(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.17s}
+.d3{transition-delay:.26s}.d4{transition-delay:.35s}
+
+/* ── CARD TILT SHINE ── */
+.tilt-card{position:relative;overflow:hidden}
+.tilt-card .tilt-shine{
+  position:absolute;inset:0;
+  border-radius:inherit;
+  pointer-events:none;z-index:3;
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.065),transparent 60%);
+  opacity:0;transition:opacity .3s;
+  will-change:background;
+}
+
+/* ── SPOTLIGHT ── */
+#cursor-spotlight{
+  position:fixed;z-index:0;pointer-events:none;
+  width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(255,255,255,.035) 0%,
+    rgba(255,255,255,.012) 35%,
+    transparent 65%
+  );
+  transform:translate(-50%,-50%);
+  opacity:0;
+  filter:blur(18px);
+  transition:opacity .45s;
+  will-change:left,top;
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    transition-delay:0ms!important;
+  }
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:.9rem 1.5rem}
+  .nav-hamburger{display:flex}
+  .nav-cta{display:none}
+  .nav-links{
+    position:fixed;
+    inset:0;z-index:99;
+    background:rgba(5,3,15,.97);
+    backdrop-filter:blur(28px) saturate(1.5);
+    flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:2.2rem;
+    pointer-events:none;
+    opacity:0;
+    transform:translateY(-6px);
+    transition:opacity .35s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1);
+    /* override display:flex so transition works */
+    display:flex!important;
+  }
+  .nav-links.open{pointer-events:auto;opacity:1;transform:translateY(0)}
+  .nav-links a{font-size:1rem;letter-spacing:.2em}
+  .nav-links a.active::after{display:none}
+  #cursor-spotlight{display:none}
+  .section{padding:5rem 1.5rem}
+  .prob-layout{grid-template-columns:1fr;gap:2.5rem}
+  .obj-layout{grid-template-columns:1fr;gap:2.5rem}
+  .pilares-grid{grid-template-columns:1fr}
+  .violeta-layout{grid-template-columns:1fr;gap:2.5rem}
+  .pq-grid{grid-template-columns:1fr}
+  .modelo-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .ods-row{grid-template-columns:repeat(3,1fr)}
+  .ods-d{display:none}
+  .hero-stats{grid-template-columns:1fr}
+  .hstat{border-right:none;border-bottom:1px solid var(--line2)}
+  .hstat:last-child{border-bottom:none}
+  footer{grid-template-columns:1fr;justify-items:center;text-align:center;padding:2rem 1.5rem}
+  .footer-links{justify-content:center}
+  .footer-contact{align-items:center}
+  .footer-copy{text-align:center}
+}
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="cursor-glow"></div>
+<div id="cursor-spotlight"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-brand">
+    <img src="Logo1.2-PNG.png" alt="Vértice" class="nav-logo-img"/>
+    <span class="nav-name">Vértice</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#objetivo">Objetivo</a></li>
+    <li><a href="#pilares">Pilares</a></li>
+    <li><a href="#violeta">Protocolo Violeta</a></li>
+    <li><a href="#modelo">Modelo</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#visao" class="nav-cta">Fazer parte</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="hero-canvas"></canvas>
+
+  <div class="hero-logo-wrap">
+    <img src="Logo1.2-PNG.png" alt="Vértice" class="hero-logo"/>
+  </div>
+
+  <div class="hero-chip">Plataforma de conexão e capacitação</div>
+
+  <h1 class="hero-title">
+    O ponto onde o<br/>
+    talento encontra<br/>
+    <span class="accent">a gestão.</span>
+  </h1>
+
+  <p class="hero-sub">
+    Vértice conecta empreendedores informais que <em>sabem fazer</em> com parceiros estratégicos que <em>sabem gerir</em> — num ambiente acessível, seguro e que educa antes de conectar.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#pilares" class="btn-grad">Conhecer a plataforma</a>
+    <a href="#problema" class="btn-ghost">Ver o problema</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num">72%</div>
+      <div class="hstat-label">dos MEIs não separam contas pessoais das do negócio</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">56%</div>
+      <div class="hstat-label">dos micro-negócios fecham antes de 5 anos</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">−80%</div>
+      <div class="hstat-label">de renda perdida quando o medo limita o alcance</div>
+    </div>
+  </div>
+  <p class="stats-source">Fontes: IBGE · SEBRAE · dados primários Vértice</p>
+
+  <div class="scroll-hint" id="scroll-hint">
+    <span>Explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Tradução</span><span class="marquee-dot">◆</span>
+    <span>Segurança</span><span class="marquee-dot">◆</span>
+    <span>Conexão</span><span class="marquee-dot">◆</span>
+    <span>Escrow</span><span class="marquee-dot">◆</span>
+    <span>Trilha de Blindagem</span><span class="marquee-dot">◆</span>
+    <span>Protocolo Violeta</span><span class="marquee-dot">◆</span>
+    <span>Parceiros Estratégicos</span><span class="marquee-dot">◆</span>
+    <span>Match Inteligente</span><span class="marquee-dot">◆</span>
+    <span>Tradução</span><span class="marquee-dot">◆</span>
+    <span>Segurança</span><span class="marquee-dot">◆</span>
+    <span>Conexão</span><span class="marquee-dot">◆</span>
+    <span>Escrow</span><span class="marquee-dot">◆</span>
+    <span>Trilha de Blindagem</span><span class="marquee-dot">◆</span>
+    <span>Protocolo Violeta</span><span class="marquee-dot">◆</span>
+    <span>Parceiros Estratégicos</span><span class="marquee-dot">◆</span>
+    <span>Match Inteligente</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<div class="div-line"></div>
+
+<!-- PROBLEMA -->
+<section class="section problema" id="problema">
+  <div class="section-inner">
+    <div class="prob-layout">
+      <div>
+        <div class="chip r">O problema</div>
+        <h2 class="stitle r d1">Três barreiras que matam negócios que mereciam sobreviver</h2>
+        <blockquote class="prob-quote r d2">
+          "O talento existe em todo lugar. O problema é que o mercado só enxerga quem fala o idioma certo."
+        </blockquote>
+      </div>
+      <div class="barriers">
+        <div class="barrier r d1">
+          <span class="barrier-n">01</span>
+          <div>
+            <div class="barrier-title">A gestão que nunca chegou</div>
+            <div class="barrier-body">Costureiras, confeiteiras, mecânicos — talento genuíno sem separação entre caixa da casa e do negócio. Qualquer pequena crise derruba o que levou anos para construir.</div>
+          </div>
+        </div>
+        <div class="barrier r d2">
+          <span class="barrier-n">02</span>
+          <div>
+            <div class="barrier-title">O idioma corporativo como muralha</div>
+            <div class="barrier-body">Plataformas falam equity, valuation, burn rate. O empreendedor informal não está excluído por incapacidade — está excluído porque ninguém traduziu.</div>
+          </div>
+        </div>
+        <div class="barrier r d3">
+          <span class="barrier-n">03</span>
+          <div>
+            <div class="barrier-title">O teto de vidro do medo</div>
+            <div class="barrier-body">Uma manicure que poderia atender 50 clientes limita-se a 10 por medo. Perda de 80% do potencial de renda — um gargalo invisível que destrói economias de bairro silenciosamente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSSO OBJETIVO -->
+<section class="section objetivo" id="objetivo">
+  <div class="obj-bg"></div>
+  <div class="section-inner obj-inner">
+    <div class="obj-layout">
+      <div>
+        <div class="chip r">Nosso objetivo</div>
+        <h2 class="stitle r d1">Não adaptamos o empreendedor ao mercado. Adaptamos o mercado ao empreendedor.</h2>
+        <div class="obj-manifesto r d2">
+          <strong>O Vértice existe para ser a ponte.</strong>
+          Em vez de pedir planilhas, perguntamos: "quando você tem um mês ruim, o que corta primeiro?" Em vez de empréstimos que viram dívida, oferecemos um parceiro que investe seu tempo em troca de participação nos resultados. Em vez de cursos genéricos, oferecemos trilhas focadas exatamente no que aquele negócio específico mais precisa agora.
+        </div>
+      </div>
+      <div class="obj-pillars-mini r d2">
+        <div class="obj-pill">
+          <div class="obj-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><line x1="1.5" y1="20" x2="22.5" y2="20" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="5" y1="20" x2="5" y2="12.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="19" y1="20" x2="19" y2="12.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path d="M5 12.5 Q12 4 19 12.5" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="9" cy="14.5" r="1.8" fill="rgba(255,255,255,0.85)"/><circle cx="15" cy="14.5" r="1.8" fill="rgba(255,255,255,0.85)"/></svg></div>
+          <div>
+            <div class="obj-pill-title">Tradução</div>
+            <div class="obj-pill-body">Convertemos talento operacional em linguagem compreensível para o mercado — e o mercado em linguagem acessível para o empreendedor. Sem jargão.</div>
+          </div>
+        </div>
+        <div class="obj-pill">
+          <div class="obj-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5 L20.5 6 V12 C20.5 16.5 17 20 12 21.5 C7 20 3.5 16.5 3.5 12 V6 Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><line x1="12" y1="15.5" x2="12" y2="8.5" stroke="white" stroke-width="1.7" stroke-linecap="round"/><path d="M9 11.5 L12 8.5 L15 11.5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+          <div>
+            <div class="obj-pill-title">Segurança como alavanca</div>
+            <div class="obj-pill-body">O Protocolo Violeta não é um custo de compliance. É a condição que permite a uma profissional expandir de 10 para 50 clientes com confiança real.</div>
+          </div>
+        </div>
+        <div class="obj-pill">
+          <div class="obj-pill-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><path d="M12 2 L20.5 7 V17 L12 22 L3.5 17 V7 Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 12.5 L11 15 L15.5 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <div class="obj-pill-title">Compromisso comprovado</div>
+            <div class="obj-pill-body">A Trilha de Blindagem é o novo score de crédito — não bancário, mas comportamental. Aprendizado como sinal de seriedade para ambos os lados da conexão.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- COMO FUNCIONA -->
+<section class="section como" id="como">
+  <div class="section-inner">
+    <div class="chip r">Como funciona</div>
+    <h2 class="stitle r d1">Do cadastro à parceria, sem jargão</h2>
+    <div class="steps">
+      <div class="step r d1">
+        <div class="step-dot">01</div>
+        <div class="step-title">Cadastro humano</div>
+        <div class="step-body">Sem planilhas, sem termos técnicos. Perguntas simples sobre o que você faz, onde está e o que precisa para crescer.</div>
+      </div>
+      <div class="step r d2">
+        <div class="step-dot">02</div>
+        <div class="step-title">Trilha de Blindagem</div>
+        <div class="step-body">Micro-cursos de 15 min antes do primeiro match. Comprometimento real de quem faz; segurança real para quem investe tempo.</div>
+      </div>
+      <div class="step r d3">
+        <div class="step-dot">03</div>
+        <div class="step-title">Match inteligente</div>
+        <div class="step-body">Lacuna declarada cruza competência ofertada. Ambas as partes escolhem a modalidade — success fee, participação, mentoria ou permuta.</div>
+      </div>
+      <div class="step r d4">
+        <div class="step-dot">04</div>
+        <div class="step-title">Parceria com escrow</div>
+        <div class="step-body">Pagamento retido via Pix e liberado somente após entrega confirmada. Confiança construída sobre garantia real, não boa vontade.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section pilares" id="pilares">
+  <div class="section-inner">
+    <div class="chip r">Os pilares</div>
+    <h2 class="stitle r d1">Três frentes. Uma plataforma integrada.</h2>
+    <div class="pilares-grid">
+      <div class="pilar tilt-card r d1"><span class="tilt-shine"></span>
+        <div class="pilar-glow"></div>
+        <div class="pilar-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><circle cx="4" cy="8" r="2.2" fill="white"/><line x1="6.2" y1="8" x2="17" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M14 5.5 L17.5 8 L14 10.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="20" cy="16" r="2.2" fill="white"/><line x1="17.8" y1="16" x2="7" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M10 13.5 L6.5 16 L10 18.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <span class="pilar-idx">PILAR 01</span>
+        <h3 class="pilar-title">Prestar e Requisitar Serviço</h3>
+        <p class="pilar-body">O coração funcional da plataforma. Quem sabe fazer cadastra o que sabe; quem precisa busca e solicita. Avaliações mútuas constroem reputação verificável — o substituto digital do boca a boca.</p>
+        <ul class="pilar-list">
+          <li>Perfis detalhados com portfólio visual</li>
+          <li>Busca por categoria de serviço e região</li>
+          <li>Sistema de avaliação mútua com histórico</li>
+          <li>Suporte a comércios físicos e ateliês</li>
+        </ul>
+      </div>
+      <div class="pilar tilt-card r d2"><span class="tilt-shine"></span>
+        <div class="pilar-glow"></div>
+        <div class="pilar-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><path d="M12 2 L21 5.5 V12 C21 16.8 17.5 20.5 12 22 C6.5 20.5 3 16.8 3 12 V5.5 Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 8.5 L15 12.5 L12 16.5 L9 12.5 Z" stroke="white" stroke-width="1.3" stroke-linejoin="round" fill="rgba(255,255,255,0.12)"/></svg></div>
+        <span class="pilar-idx">PILAR 02</span>
+        <h3 class="pilar-title">Protocolo Violeta</h3>
+        <p class="pilar-body">Segurança não é um custo — é uma alavanca econômica. Ambiente verificado onde mulheres se conectam exclusivamente entre si, com confiança real para expandir.</p>
+        <ul class="pilar-list">
+          <li>Verificação progressiva: e-mail → SMS → CPF</li>
+          <li>Denúncia com resposta garantida em 24h</li>
+          <li>Reputação visível apenas entre verificadas</li>
+          <li>Níveis: Verificada · Verificada+ · Embaixadora</li>
+        </ul>
+      </div>
+      <div class="pilar tilt-card r d3"><span class="tilt-shine"></span>
+        <div class="pilar-glow"></div>
+        <div class="pilar-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="8" height="6.5" rx="2" stroke="white" stroke-width="1.5"/><rect x="14.5" y="1.5" width="8" height="6.5" rx="2" stroke="white" stroke-width="1.5"/><line x1="5.5" y1="8" x2="12" y2="20" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="18.5" y1="8" x2="12" y2="20" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="20" r="2.3" fill="white"/></svg></div>
+        <span class="pilar-idx">PILAR 03</span>
+        <h3 class="pilar-title">Parceiros Estratégicos</h3>
+        <p class="pilar-body">O empreendedor declara a lacuna; o parceiro declara a competência. Match com interesse compartilhado no sucesso — não é freelancer por tarefa, é parceria de médio/longo prazo.</p>
+        <ul class="pilar-list">
+          <li>Participação nos resultados por prazo determinado</li>
+          <li>Troca de serviços formalizada entre partes</li>
+          <li>Mentoria vinculada com certificação digital</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- PROTOCOLO VIOLETA -->
+<section class="section violeta" id="violeta">
+  <div class="section-inner">
+    <div class="violeta-card">
+      <div class="violeta-orb1"></div>
+      <div class="violeta-orb2"></div>
+      <div class="violeta-layout">
+        <div>
+          <div class="v-tag r">Protocolo Violeta</div>
+          <h2 class="violeta-title r d1">O gargalo econômico que ninguém via. Nós resolvemos.</h2>
+          <p class="violeta-body r d2">Mulheres empreendedoras limitam sua clientela por medo de atender desconhecidos. Esse medo não é psicológico — é racional, baseado em risco real. O Protocolo Violeta cria um espaço exclusivo onde cada conexão é verificada, transformando medo em confiança operacional.</p>
+          <div class="v-insight r d3">De <strong>10 clientes por medo</strong> para <strong>30 a 50 por confiança</strong> — multiplicando renda, gerando emprego e fortalecendo a economia local.</div>
+        </div>
+        <div class="v-phases r d2">
+          <div class="vp">
+            <span class="vp-v">v1</span>
+            <div>
+              <div class="vp-title">Fundação — MVP</div>
+              <div class="vp-body">Tag manual, filtro de gênero e reputação entre verificadas. Funcional desde o primeiro dia.</div>
+            </div>
+          </div>
+          <div class="vp">
+            <span class="vp-v">v2</span>
+            <div>
+              <div class="vp-title">Verificação ativa</div>
+              <div class="vp-body">E-mail + SMS, denúncia com escalonamento e resposta em 24h. 80% funcional com estrutura robusta.</div>
+            </div>
+          </div>
+          <div class="vp">
+            <span class="vp-v">v3</span>
+            <div>
+              <div class="vp-title">Confiança total</div>
+              <div class="vp-body">CPF verificado, moderação de foto e sistema de confiança por níveis com Embaixadoras comunitárias.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="section paraquem" id="paraquem">
+  <div class="section-inner">
+    <div class="chip r">Para quem</div>
+    <h2 class="stitle r d1">Quem o Vértice conecta</h2>
+    <div class="pq-grid">
+      <div class="pq-card tilt-card r d1"><span class="tilt-shine"></span>
+        <div class="pq-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B30CC"/><stop offset="55%" stop-color="#C83490"/><stop offset="100%" stop-color="#F05478"/></linearGradient></defs><path d="M8 3 H16 L21 9 L12 21 L3 9 Z" stroke="url(#gp1)" stroke-width="1.6" stroke-linejoin="round"/><line x1="3" y1="9" x2="21" y2="9" stroke="url(#gp1)" stroke-width="1.4" stroke-linecap="round"/><line x1="8" y1="3" x2="12" y2="9" stroke="url(#gp1)" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/><line x1="16" y1="3" x2="12" y2="9" stroke="url(#gp1)" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/><line x1="3" y1="9" x2="12" y2="21" stroke="url(#gp1)" stroke-width="1.1" stroke-linecap="round" opacity="0.45"/><line x1="21" y1="9" x2="12" y2="21" stroke="url(#gp1)" stroke-width="1.1" stroke-linecap="round" opacity="0.45"/></svg></div>
+        <div class="pq-title">A empreendedora informal</div>
+        <p class="pq-body">Costureira, confeiteira, manicure, cuidadora. Fatura R$ 2.000–8.000/mês, tem 1–3 anos de operação. Vende tudo em horas, mas não sabe quanto lucra. Poderia dobrar o negócio com o parceiro certo.</p>
+        <span class="pq-pill">Perfil primário</span>
+      </div>
+      <div class="pq-card tilt-card r d2"><span class="tilt-shine"></span>
+        <div class="pq-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gp2" x1="0" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#8B30CC"/><stop offset="100%" stop-color="#C83490"/></linearGradient></defs><path d="M9 17 C9 17 8 15 8 12 C8 9.24 9.8 7 12 7 C14.2 7 16 9.24 16 12 C16 15 15 17 15 17 Z" stroke="url(#gp2)" stroke-width="1.6" stroke-linejoin="round"/><line x1="9.5" y1="19" x2="14.5" y2="19" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/><line x1="10.5" y1="21" x2="13.5" y2="21" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/><path d="M12 3 L12 5.5" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/><path d="M4 12 L6.5 12" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/><path d="M17.5 12 L20 12" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/><path d="M5.8 5.8 L7.6 7.6" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/><path d="M18.2 5.8 L16.4 7.6" stroke="url(#gp2)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="pq-title">O parceiro estratégico</div>
+        <p class="pq-body">Estudante de Adm, Marketing ou Gestão buscando experiência real — não simulada. Recém-formado que quer portfólio. Toparia trabalhar 3 meses em um negócio real em troca de % do que crescer.</p>
+        <span class="pq-pill">Parceiro de conhecimento</span>
+      </div>
+      <div class="pq-card tilt-card r d3"><span class="tilt-shine"></span>
+        <div class="pq-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:block" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gp3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4A80E8"/><stop offset="100%" stop-color="#8B30CC"/></linearGradient></defs><line x1="1.5" y1="21" x2="22.5" y2="21" stroke="url(#gp3)" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="9" width="4.5" height="12" rx="1" stroke="url(#gp3)" stroke-width="1.5"/><rect x="9.75" y="5" width="4.5" height="16" rx="1" stroke="url(#gp3)" stroke-width="1.5"/><rect x="16.5" y="12" width="4.5" height="9" rx="1" stroke="url(#gp3)" stroke-width="1.5"/><path d="M5 4.5 L12 1.5 L19 4.5" stroke="url(#gp3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pq-title">O cliente B2B</div>
+        <p class="pq-body">Bancos, fintechs e marcas de consumo popular que precisam alcançar o mercado subbancarizado com confiança. Pagam pelo acesso à base qualificada — e financiam o acesso gratuito para a base.</p>
+        <span class="pq-pill">Motor de sustentabilidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section class="section modelo" id="modelo">
+  <div class="section-inner">
+    <div class="chip r">Modelo de negócio</div>
+    <h2 class="stitle r d1">Sustentável por design, não por dependência</h2>
+    <div class="modelo-grid">
+      <div class="mbox tilt-card r d1"><span class="tilt-shine"></span>
+        <div class="mbox-title">Fontes de receita</div>
+        <div class="frow"><span class="frow-label">Escrow — custódia de pagamentos</span><span class="frow-tag">Por transação</span></div>
+        <div class="frow"><span class="frow-label">Acesso B2B corporativo</span><span class="frow-tag">Recorrente</span></div>
+        <div class="frow"><span class="frow-label">Cursos premium — Trilha de Blindagem</span><span class="frow-tag">Por venda</span></div>
+        <div class="frow"><span class="frow-label">Parcerias institucionais</span><span class="frow-tag">Projetos</span></div>
+        <div class="mbox-note">O topo da pirâmide subsidia a base. O mesmo modelo do Spotify Free e do LinkedIn Premium — não é utopia, é subvenção cruzada.</div>
+      </div>
+      <div class="mbox tilt-card r d2"><span class="tilt-shine"></span>
+        <div class="mbox-title">Vértice vs. plataformas tradicionais</div>
+        <table class="dtable">
+          <thead><tr><th>Diferencial</th><th>Vértice</th><th>Mercado</th></tr></thead>
+          <tbody>
+            <tr><td>Linguagem</td><td class="yes">Acessível</td><td class="no">Corporativa</td></tr>
+            <tr><td>Capital oferecido</td><td class="yes">Humano + financeiro</td><td class="no">Só financeiro</td></tr>
+            <tr><td>Segurança feminina</td><td class="yes">Protocolo Violeta</td><td class="no">Inexistente</td></tr>
+            <tr><td>Educação integrada</td><td class="yes">Personalizada e planejada</td><td class="no">Genérica ou ausente</td></tr>
+            <tr><td>Score alternativo</td><td class="yes">Comportamento + aprendizado</td><td class="no">Histórico bancário</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<section class="section impacto" id="impacto">
+  <div class="section-inner">
+    <div class="chip r">Impacto</div>
+    <h2 class="stitle r d1">Alinhado com os ODS da ONU</h2>
+    <div class="ods-row">
+      <div class="ods-c r d1">
+        <div class="ods-n">ODS 1</div>
+        <div class="ods-l">Erradicação da Pobreza</div>
+        <div class="ods-d">Aumento de renda de empreendedoras informais</div>
+      </div>
+      <div class="ods-c r d2">
+        <div class="ods-n">ODS 5</div>
+        <div class="ods-l">Igualdade de Gênero</div>
+        <div class="ods-d">Protocolo Violeta desbloqueando potencial econômico feminino</div>
+      </div>
+      <div class="ods-c r d3">
+        <div class="ods-n">ODS 8</div>
+        <div class="ods-l">Trabalho Decente e Crescimento</div>
+        <div class="ods-d">Formalização progressiva e geração de renda local</div>
+      </div>
+      <div class="ods-c r d4">
+        <div class="ods-n">ODS 10</div>
+        <div class="ods-l">Redução das Desigualdades</div>
+        <div class="ods-d">Democratização do acesso a conhecimento de gestão</div>
+      </div>
+      <div class="ods-c r d4">
+        <div class="ods-n">ODS 17</div>
+        <div class="ods-l">Parcerias para Implementação</div>
+        <div class="ods-d">Modelo B2B com Senac como âncora institucional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISÃO / CTA -->
+<section class="section visao" id="visao">
+  <div class="visao-glow"></div>
+  <h2 class="visao-title r">
+    Não é sobre salvar uma loja.
+    <em>É sobre um colchão de prosperidade.</em>
+  </h2>
+  <p class="visao-body r d1">
+    Quando uma empreendedora conecta ao parceiro certo, aprende o básico de gestão e opera num ambiente seguro — ela não apenas cresce. Ela contrata. Essa pessoa para de depender do governo. A empreendedora começa a pagar imposto. O bairro tem uma economia mais resiliente. Multiplique por mil conexões.
+  </p>
+  <div class="visao-actions r d2">
+    <a href="mailto:verticeportal@gmail.com?subject=Quero%20fazer%20parte%20do%20V%C3%A9rtice" class="btn-grad">Quero fazer parte</a>
+    <a href="#pilares" class="btn-ghost">Explorar os pilares</a>
+  </div>
+  <div class="r d3" style="margin-top:2.5rem;display:flex;gap:2rem;justify-content:center;align-items:center;flex-wrap:wrap">
+    <a href="https://instagram.com/verticeportal" target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;color:var(--text-dim);text-decoration:none;letter-spacing:.06em;transition:color .2s"
+       onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-dim)'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      instagram.com/verticeportal
+    </a>
+    <span style="color:var(--line2);font-size:.8rem">·</span>
+    <a href="mailto:verticeportal@gmail.com" style="display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;color:var(--text-dim);text-decoration:none;letter-spacing:.06em;transition:color .2s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-dim)'">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      verticeportal@gmail.com
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="Logo1.2-PNG.png" alt="Vértice" class="footer-logo-img"/>
+    <span class="footer-name">Vértice</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#problema">Problema</a></li>
+    <li><a href="#objetivo">Objetivo</a></li>
+    <li><a href="#pilares">Pilares</a></li>
+    <li><a href="#violeta">Protocolo Violeta</a></li>
+  </ul>
+  <div class="footer-contact">
+    <div class="footer-contact-row">
+      <div class="footer-social">
+        <a href="https://instagram.com/verticeportal" target="_blank" rel="noopener" title="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="mailto:verticeportal@gmail.com" title="E-mail">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      Empreenda Senac 2026 · 19ª Edição<br/>
+      Taboão da Serra — Brasil
+    </div>
+  </div>
+</footer>
+
+<!-- Three.js moved to bottom — non-render-blocking -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ── THREE.JS PARTICLE NETWORK ───────────────────────
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if(!canvas || typeof THREE === 'undefined') return;
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+  camera.position.z = 180;
+
+  const W = window.innerWidth, H = window.innerHeight;
+  renderer.setSize(W, H);
+
+  const N = 120;
+  const positions = [];
+  const velocities = [];
+  const colors = [
+    new THREE.Color('#8B30CC'),
+    new THREE.Color('#C83490'),
+    new THREE.Color('#F05478'),
+    new THREE.Color('#4A80E8'),
+    new THREE.Color('#1E3C8F'),
+  ];
+
+  const geo = new THREE.BufferGeometry();
+  const posArr = new Float32Array(N*3);
+  const colArr = new Float32Array(N*3);
+
+  for(let i=0;i<N;i++){
+    const x=(Math.random()-.5)*300, y=(Math.random()-.5)*220, z=(Math.random()-.5)*100;
+    positions.push({x,y,z});
+    velocities.push({x:(Math.random()-.5)*.12,y:(Math.random()-.5)*.12,z:(Math.random()-.5)*.04});
+    posArr[i*3]=x; posArr[i*3+1]=y; posArr[i*3+2]=z;
+    const c=colors[Math.floor(Math.random()*colors.length)];
+    colArr[i*3]=c.r; colArr[i*3+1]=c.g; colArr[i*3+2]=c.b;
+  }
+
+  geo.setAttribute('position', new THREE.BufferAttribute(posArr,3));
+  geo.setAttribute('color',    new THREE.BufferAttribute(colArr,3));
+
+  const mat = new THREE.PointsMaterial({size:.8,vertexColors:true,transparent:true,opacity:.55,sizeAttenuation:true});
+  scene.add(new THREE.Points(geo, mat));
+
+  const lineGeo = new THREE.BufferGeometry();
+  const linePositions = new Float32Array(N*N*6);
+  const lineColors    = new Float32Array(N*N*6);
+  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions,3));
+  lineGeo.setAttribute('color',    new THREE.BufferAttribute(lineColors,3));
+  const lineMat = new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.12,linewidth:1}));
+  scene.add(lineMat);
+
+  let mouseX=0, mouseY=0;
+  document.addEventListener('mousemove',e=>{
+    mouseX=(e.clientX/window.innerWidth-.5)*60;
+    mouseY=(e.clientY/window.innerHeight-.5)*40;
+  },{passive:true});
+
+  window.addEventListener('resize',()=>{
+    const w=window.innerWidth,h=window.innerHeight;
+    renderer.setSize(w,h);
+    camera.aspect=w/h;
+    camera.updateProjectionMatrix();
+  },{passive:true});
+
+  const LINK_DIST=55;
+
+  function animate(){
+    requestAnimationFrame(animate);
+    const pa=geo.attributes.position.array;
+    for(let i=0;i<N;i++){
+      const p=positions[i],v=velocities[i];
+      p.x+=v.x; p.y+=v.y; p.z+=v.z;
+      if(p.x>155||p.x<-155)v.x*=-1;
+      if(p.y>115||p.y<-115)v.y*=-1;
+      if(p.z>55||p.z<-55)v.z*=-1;
+      pa[i*3]=p.x;pa[i*3+1]=p.y;pa[i*3+2]=p.z;
+    }
+    geo.attributes.position.needsUpdate=true;
+    let lc=0;
+    const lpa=lineGeo.attributes.position.array;
+    const lca=lineGeo.attributes.color.array;
+    for(let i=0;i<N;i++){
+      for(let j=i+1;j<N;j++){
+        const dx=positions[i].x-positions[j].x;
+        const dy=positions[i].y-positions[j].y;
+        const dz=positions[i].z-positions[j].z;
+        const d=Math.sqrt(dx*dx+dy*dy+dz*dz);
+        if(d<LINK_DIST&&lc<N*N*2-2){
+          const alpha=(1-d/LINK_DIST);
+          const mw=window._vMouseWorld||{x:0,y:0,active:false};
+          const mdx=mw.active?((positions[i].x+positions[j].x)*.5-mw.x):999;
+          const mdy=mw.active?((positions[i].y+positions[j].y)*.5-mw.y):999;
+          const mdist=Math.sqrt(mdx*mdx+mdy*mdy);
+          const boost=mw.active?Math.max(0,1-mdist/30)*.55:0;
+          lpa[lc*3]=positions[i].x;lpa[lc*3+1]=positions[i].y;lpa[lc*3+2]=positions[i].z;
+          lca[lc*3]=.55+alpha*.3+boost*.4;lca[lc*3+1]=.19+alpha*.1+boost*.15;lca[lc*3+2]=.8+alpha*.1+boost*.15;
+          lc++;
+          lpa[lc*3]=positions[j].x;lpa[lc*3+1]=positions[j].y;lpa[lc*3+2]=positions[j].z;
+          lca[lc*3]=.78;lca[lc*3+1]=.2;lca[lc*3+2]=.56;
+          lc++;
+        }
+      }
+    }
+    lineGeo.setDrawRange(0,lc);
+    lineGeo.attributes.position.needsUpdate=true;
+    lineGeo.attributes.color.needsUpdate=true;
+    camera.position.x+=(mouseX*.3-camera.position.x)*.02;
+    camera.position.y+=(-mouseY*.3-camera.position.y)*.02;
+    camera.lookAt(scene.position);
+    renderer.render(scene,camera);
+  }
+  animate();
+})();
+
+// ── SCROLL REVEAL ────────────────────────────────────
+const io = new IntersectionObserver(
+  es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }),
+  {threshold:.08, rootMargin:'0px 0px -28px 0px'}
+);
+document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+// ── NAV SCROLL ───────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+},{passive:true});
+
+// ── SCROLL HINT HIDE ─────────────────────────────────
+(function(){
+  const hint = document.getElementById('scroll-hint');
+  if(!hint) return;
+  let hidden = false;
+  window.addEventListener('scroll', ()=>{
+    if(!hidden && window.scrollY > 80){
+      hint.classList.add('hidden');
+      hidden = true;
+    }
+  },{passive:true});
+})();
+
+// ── PARALLAX HERO LOGO ───────────────────────────────
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  const logo = document.querySelector('.hero-logo-wrap');
+  if(logo) logo.style.transform = `translateY(${y*.15}px)`;
+},{passive:true});
+
+// ── SCROLL PROGRESS BAR ──────────────────────────────
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll',()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (docHeight > 0 ? (scrollTop/docHeight)*100 : 0) + '%';
+},{passive:true});
+
+// ── CURSOR GLOW ──────────────────────────────────────
+(function(){
+  const glow = document.getElementById('cursor-glow');
+  let cx=0,cy=0,tx=0,ty=0,visible=false;
+  document.addEventListener('mousemove',e=>{
+    tx=e.clientX; ty=e.clientY;
+    if(!visible){glow.style.opacity='1';visible=true;}
+  },{passive:true});
+  document.addEventListener('mouseleave',()=>{glow.style.opacity='0';visible=false;},{passive:true});
+  function lerp(a,b,t){return a+(b-a)*t}
+  (function loop(){
+    cx=lerp(cx,tx,.1); cy=lerp(cy,ty,.1);
+    glow.style.left=cx+'px'; glow.style.top=cy+'px';
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// ── COUNTER ANIMATION ────────────────────────────────
+(function(){
+  const stats=[
+    {el:document.querySelectorAll('.hstat-num')[0],target:72, suffix:'%',prefix:''},
+    {el:document.querySelectorAll('.hstat-num')[1],target:56, suffix:'%',prefix:''},
+    {el:document.querySelectorAll('.hstat-num')[2],target:80, suffix:'%',prefix:'−'},
+  ];
+  function animateCount(el,target,suffix,prefix,duration=1400){
+    let start=null;
+    const ease=t=>1-Math.pow(1-t,3);
+    function step(ts){
+      if(!start)start=ts;
+      const progress=Math.min((ts-start)/duration,1);
+      el.textContent=prefix+Math.round(ease(progress)*target)+suffix;
+      if(progress<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const statsBlock=document.querySelector('.hero-stats');
+  if(!statsBlock)return;
+  let counted=false;
+  new IntersectionObserver(([e])=>{
+    if(e.isIntersecting&&!counted){
+      counted=true;
+      stats.forEach(({el,target,suffix,prefix})=>{if(el)animateCount(el,target,suffix,prefix);});
+    }
+  },{threshold:.3}).observe(statsBlock);
+})();
+
+// ── MAGNETIC BUTTONS ─────────────────────────────────
+(function(){
+  const STRENGTH=0.28;
+  document.querySelectorAll('.btn-grad,.btn-ghost,.nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      btn.style.transform=`translate(${(e.clientX-(r.left+r.width/2))*STRENGTH}px,${(e.clientY-(r.top+r.height/2))*STRENGTH}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  });
+})();
+
+// ── 3D TILT + SHINE ON CARDS ─────────────────────────
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches||window.innerWidth<1025)return;
+
+  function attachTilt(selector,maxTilt){
+    document.querySelectorAll(selector).forEach(card=>{
+      const shine=card.querySelector('.tilt-shine');
+      card.addEventListener('mousemove',e=>{
+        const r=card.getBoundingClientRect();
+        const nx=(e.clientX-r.left)/r.width-.5;
+        const ny=(e.clientY-r.top)/r.height-.5;
+        card.style.transform=`perspective(700px) rotateX(${-ny*maxTilt*2}deg) rotateY(${nx*maxTilt*2}deg) translateZ(4px)`;
+        if(shine){
+          shine.style.background=`radial-gradient(circle at ${((e.clientX-r.left)/r.width)*100}% ${((e.clientY-r.top)/r.height)*100}%,rgba(255,255,255,.09),transparent 58%)`;
+          shine.style.opacity='1';
+        }
+      });
+      card.addEventListener('mouseleave',()=>{
+        card.style.transform='';
+        card.style.transition='transform .45s cubic-bezier(.16,1,.3,1),border-color .35s,box-shadow .35s';
+        if(shine)shine.style.opacity='0';
+        setTimeout(()=>{card.style.transition='';},460);
+      });
+    });
+  }
+
+  attachTilt('.pilar.tilt-card',7);
+  attachTilt('.pq-card.tilt-card',5);
+  attachTilt('.mbox.tilt-card',5);
+  attachTilt('.barrier',3.5);
+  attachTilt('.obj-pill',3.5);
+})();
+
+// ── PARALLAX LAYERS ON SCROLL ────────────────────────
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const layers=[
+    {el:document.querySelector('.violeta-orb1'),speed:.04},
+    {el:document.querySelector('.violeta-orb2'),speed:-.03},
+    {el:document.querySelector('.visao-glow'),  speed:.05},
+    {el:document.querySelector('.obj-bg'),      speed:.025},
+  ].filter(l=>l.el);
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(!ticking){
+      requestAnimationFrame(()=>{
+        const sy=window.scrollY;
+        layers.forEach(({el,speed})=>{el.style.transform=`translateY(${sy*speed}px)`;});
+        ticking=false;
+      });
+      ticking=true;
+    }
+  },{passive:true});
+})();
+
+// ── SPOTLIGHT VOLUMÉTRICO ────────────────────────────
+(function(){
+  const spot=document.getElementById('cursor-spotlight');
+  if(!spot||window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  if(window.innerWidth<1025){spot.style.display='none';return;}
+  let sx=0,sy=0,tx=0,ty=0,visible=false;
+  document.addEventListener('mousemove',e=>{
+    tx=e.clientX;ty=e.clientY;
+    if(!visible){spot.style.opacity='1';visible=true;}
+  },{passive:true});
+  document.addEventListener('mouseleave',()=>{spot.style.opacity='0';visible=false;},{passive:true});
+  function lerp(a,b,t){return a+(b-a)*t}
+  (function loop(){
+    sx=lerp(sx,tx,.07);sy=lerp(sy,ty,.07);
+    spot.style.left=sx+'px';spot.style.top=sy+'px';
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// ── CONSTELLATION REACTIVE ───────────────────────────
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  window._vMouseWorld={x:0,y:0,active:false};
+  document.addEventListener('mousemove',e=>{
+    const aspect=window.innerWidth/window.innerHeight;
+    const halfH=Math.tan((60*Math.PI/180)/2)*180;
+    window._vMouseWorld.x=((e.clientX/window.innerWidth)-.5)*halfH*aspect*2;
+    window._vMouseWorld.y=-((e.clientY/window.innerHeight)-.5)*halfH*2;
+    window._vMouseWorld.active=true;
+  },{passive:true});
+})();
+
+// ── MOBILE HAMBURGER ─────────────────────────────────
+(function(){
+  const btn=document.getElementById('nav-hamburger');
+  const links=document.getElementById('nav-links');
+  if(!btn||!links)return;
+
+  function toggleMenu(open){
+    btn.classList.toggle('open',open);
+    links.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',String(open));
+    document.body.style.overflow=open?'hidden':'';
+  }
+
+  btn.addEventListener('click',()=>toggleMenu(!links.classList.contains('open')));
+
+  // Close on link click
+  links.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>toggleMenu(false));
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&links.classList.contains('open'))toggleMenu(false);
+  });
+})();
+
+// ── ACTIVE NAV LINK ──────────────────────────────────
+(function(){
+  const navLinks=document.querySelectorAll('.nav-links a');
+  const sections=document.querySelectorAll('section[id]');
+  if(!navLinks.length||!sections.length)return;
+
+  const navObs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id=entry.target.getAttribute('id');
+        navLinks.forEach(a=>{
+          a.classList.toggle('active',a.getAttribute('href')==='#'+id);
+        });
+      }
+    });
+  },{threshold:0.35,rootMargin:'-64px 0px -35% 0px'});
+
+  sections.forEach(s=>navObs.observe(s));
+})();
+</script>
+</body>
+</html>
