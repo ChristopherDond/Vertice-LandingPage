@@ -1,5 +1,7 @@
 # Vértice Landing Page
 
+[Versão em português](README.pt-BR.md)
+
 An institutional landing page for Vértice, built with plain HTML, CSS, and JavaScript. The goal is to present the platform with a clean, organic experience and no visual clutter.
 
 ## Purpose
