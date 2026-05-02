@@ -1,34 +1,34 @@
 # Vértice Landing Page
 
-Landing page institucional do Vértice construída com HTML, CSS e JavaScript puro. O foco é apresentar a proposta da plataforma com uma experiência limpa, orgânica e sem poluição visual.
+An institutional landing page for Vértice, built with plain HTML, CSS, and JavaScript. The goal is to present the platform with a clean, organic experience and no visual clutter.
 
-## Objetivo
+## Purpose
 
-Mostrar como o Vértice conecta empreendedores informais com parceiros estratégicos, destacando a dor do problema, a solução, os pilares do produto, o Protocolo Violeta e o modelo de negócio.
+Show how Vértice connects informal entrepreneurs with strategic partners by highlighting the problem, the solution, the product pillars, the Violet Protocol, and the business model.
 
-## Conteúdo da página
+## Page Content
 
-- Hero com manifesto e estatísticas de apoio
-- Seções de problema, objetivo e como funciona
-- Pilares do produto, público-alvo e modelo de negócio
-- Bloco de impacto alinhado aos ODS
-- CTA final com canais de contato
+- Hero section with a manifesto and supporting metrics
+- Problem, purpose, and how-it-works sections
+- Product pillars, target audience, and business model
+- Impact block aligned with the UN Sustainable Development Goals
+- Final CTA with contact channels
 
-## Estrutura
+## Structure
 
-- `index.html` - página única com conteúdo, estilos e scripts
-- `Logo1.2-PNG.png` - marca usada no topo e no rodapé
+- `index.html` - single page with content, styles, and scripts
+- `Logo1.2-PNG.png` - brand mark used in the header and footer
 
-## Como abrir
+## How to Open
 
-1. Abra a pasta do projeto no VS Code.
-2. Abra `index.html` no navegador.
-3. Se quiser recarregamento automático, use uma extensão como Live Server.
+1. Open the project folder in VS Code.
+2. Open `index.html` in your browser.
+3. If you want live reload, use an extension like Live Server.
 
-## Direção visual
+## Visual Direction
 
-O site segue uma linguagem escura, elegante e sóbria, com contrastes suaves, tipografia editorial e animações discretas.
+The site follows a dark, elegant, and understated visual language, with soft contrasts, editorial typography, and subtle animations.
 
-## Observação
+## Note
 
-O projeto foi pensado como uma landing page única. Melhorias futuras devem priorizar clareza, conversão e consistência visual antes de novas camadas de efeito.
+This project was designed as a single landing page. Future improvements should prioritize clarity, conversion, and visual consistency before adding more effects.
