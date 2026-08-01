@@ -2,35 +2,45 @@
 
 [Versão em português](README.pt-BR.md)
 
-An institutional landing page for Vértice, built with plain HTML, CSS, and JavaScript. The goal is to present the platform with a clean, organic experience and no visual clutter.
+Institutional landing page for Vértice — official version built with **Next.js** (static export).
 
-## Purpose
+## About
 
-Show how Vértice connects informal entrepreneurs with strategic partners by highlighting the problem, the solution, the product pillars, the Violet Protocol, and the business model.
+Vértice connects those who *do* with those who *know how to manage* — with simple language, safety, and support to grow.
+This is the official landing page with the project's real content: manifesto, informal entrepreneur barriers,
+platform pillars, Violet Protocol, business model, and impact (SDGs).
 
-## Page Content
+## Page content
 
-- Hero section with a manifesto and supporting metrics
-- Problem, purpose, and how-it-works sections
-- Product pillars, target audience, and business model
-- Impact block aligned with the UN Sustainable Development Goals
-- Final CTA with contact channels
+- Hero with manifesto "Where talent meets management" + statistics
+- Marquee with platform pillars
+- Problem (3 barriers) and Objective/Manifesto
+- How it works (4 steps: signup → shield track → match → escrow)
+- Pillars: Provide/Request Service · Violet Protocol · Strategic Partners
+- Violet Protocol with phases v1–v3
+- Who it's for (3 personas) and Business model
+- Impact (SDG 1, 5, 8, 10, 17)
+- Final vision/CTA + contacts
 
 ## Structure
 
-- `index.html` - single page with content, styles, and scripts
-- `Logo1.2-PNG.png` - brand mark used in the header and footer
+- `index.html` — generated static page (Next.js export)
+- `_next/` — static assets (JS/CSS)
+- `logo-vertice.png` — brand
+- `404.html` — error page
 
-## How to Open
+## Source code
 
-1. Open the project folder in VS Code.
-2. Open `index.html` in your browser.
-3. If you want live reload, use an extension like Live Server.
+The source code (Next.js + React + Tailwind + Three.js) lives in the `VerticeWeb-v0` project.
+This folder contains only the published static build.
 
-## Visual Direction
+## How to update
 
-The site follows a dark, elegant, and understated visual language, with soft contrasts, editorial typography, and subtle animations.
+1. In the `VerticeWeb-v0` project: `npm run build`
+2. Copy the contents of `out/` to this folder
+3. Commit and push
 
-## Note
+## Visual direction
 
-This project was designed as a single landing page. Future improvements should prioritize clarity, conversion, and visual consistency before adding more effects.
+Elegant dark theme, editorial typography (Playfair Display + Inter), violet/pink accents,
+handcrafted 3D mesh in the hero (Three.js), purposeful micro-interactions (magnetic buttons, 3D tilt, reveal).
